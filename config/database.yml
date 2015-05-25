@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: gofV2_development
+  host: localhost
+
+test:
+  <<: *default
+  database: gofV2_test
+
+production:
+  <<: *default
+  database: gofV2_production
+  username: gofV2
+  password: <%= ENV['GOFV2_DATABASE_PASSWORD'] %>
